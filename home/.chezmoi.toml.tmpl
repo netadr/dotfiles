@@ -1,0 +1,4 @@
+{{- $catppuccin := (promptChoice "Catppuccin palette" (list "latte" "frappe" "macchiato" "mocha") "macchiato") -}}
+
+[data]
+catppuccin = {{- $catppuccin | quote -}}
