@@ -1,0 +1,30 @@
+local wezterm = require 'wezterm'
+local config = {}
+
+{{ if eq .catppuccin "latte" }}
+
+config.color_scheme = 'Catppuccin Latte'
+
+{{ else if eq .catppuccin "frappe" }}
+
+config.color_scheme = 'Catppuccin Frappe'
+
+{{ else if eq .catppuccin "macchiato" }}
+
+config.color_scheme = 'Catppuccin Macchiato'
+
+{{ else if eq .catppuccin "mocha" }}
+
+config.color_scheme = 'Catppuccin Mocha'
+
+{{ end }}
+
+config.front_end = 'WebGpu'
+
+{{ if eq .chezmoi.os "windows" }}
+
+config.default_prog = { 'pwsh.exe' }
+
+{{ end }}
+
+return config

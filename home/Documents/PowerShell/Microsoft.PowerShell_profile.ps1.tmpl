@@ -1,0 +1,11 @@
+# Add Git stuff (coreutils, etc...) to $PATH
+$env:PATH += ";C:\Program Files\Git\usr\bin"
+
+# Set my default editor
+$env:EDITOR = {{ .editor | quote }};
+
+# Initialize zoxide
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
+# Initialize Starship
+Invoke-Expression (&starship init powershell)
