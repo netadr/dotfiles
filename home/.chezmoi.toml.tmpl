@@ -1,4 +1,37 @@
 {{- $catppuccin := (promptChoice "Catppuccin palette" (list "latte" "frappe" "macchiato" "mocha") "macchiato") -}}
 
 [data]
-catppuccin = {{- $catppuccin | quote -}}
+catppuccin = "{{- $catppuccin -}}"
+editor = "hx"
+
+[data.packages]
+{{ if eq .chezmoi.os "windows" }}
+winget = [
+	"ajeetdsouza.zoxide",
+	"AmN.yasb",
+	"astral-sh.uv",
+	"BurntSushi.ripgrep.MSVC",
+	"Git.Git",
+	"Gyan.FFmpeg",
+	"Helix.Helix",
+	"Henry++.simplewall",
+	"IDRIX.VeraCrypt",
+	"ImageMagick.ImageMagick",
+	"jqlang.jq",
+	"junegunn.fzf",
+	"LGUG2Z.komorebi",
+	"LGUG2Z.whkd",
+	"M2Team.NanaZip",
+	"Microsoft.WindowsTerminal",
+	"Obsidian.Obsidian",
+	"OBSProject.OBSStudio",
+	"OpenWhisperSystems.Signal",
+	"Rclone.Rclone",
+	"sharkdp.fd",
+	"Sweetscape.010Editor",
+	"sxyazi.yazi",
+	"Vencord.Vesktop",
+	"WinFsp.WinFsp",
+	"WinsiderSS.SystemInformer"
+]
+{{ end }}
