@@ -2,7 +2,7 @@
 $env:PATH += ";C:\Program Files\Git\usr\bin"
 
 # Set my default editor
-$env:EDITOR = {{ .editor | quote }};
+$env:EDITOR = {{- .editor | quote }};
 
 # Initialize zoxide
 Invoke-Expression (& { (zoxide init powershell | Out-String) })

@@ -1,5 +1,5 @@
-{{ if eq .chezmoi.os "windows" }}
-{{ if .packages.winget }}
+{{- if eq .chezmoi.os "windows" }}
+{{- if .packages.winget }}
 
 function wingetInstallIfNotInstalled($id)
 {
@@ -16,5 +16,5 @@ foreach ($package in $wingetPackages)
     wingetInstallIfNotInstalled($package)
 }
 
-{{ end }}
-{{ end }}
+{{- end }}
+{{- end }}

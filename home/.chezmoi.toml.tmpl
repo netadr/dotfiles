@@ -5,10 +5,11 @@ catppuccin = "{{- $catppuccin -}}"
 editor = "hx"
 
 [data.packages]
-{{ if eq .chezmoi.os "windows" }}
+{{- if eq .chezmoi.os "windows" }}
 winget = [
 	"ajeetdsouza.zoxide",
 	"AmN.yasb",
+	"astral-sh.ruff",
 	"astral-sh.uv",
 	"BurntSushi.ripgrep.MSVC",
 	"Discord.Discord",
@@ -23,6 +24,7 @@ winget = [
 	"Kitware.CMake",
 	"LGUG2Z.komorebi",
 	"LGUG2Z.whkd",
+	"LLVM.LLVM",
 	"M2Team.NanaZip",
 	"Microsoft.PowerShell",
 	"Microsoft.VisualStudio.2022.Community.Preview",
@@ -37,8 +39,9 @@ winget = [
 	"Starship.Starship",
 	"Sweetscape.010Editor",
 	"sxyazi.yazi",
+	"Valve.Steam",
 	"wez.wezterm",
 	"WinFsp.WinFsp",
 	"WinsiderSS.SystemInformer"
 ]
-{{ end }}
+{{- end }}
