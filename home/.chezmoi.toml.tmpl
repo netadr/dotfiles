@@ -1,7 +1,9 @@
 {{- $catppuccin := (promptChoice "Catppuccin palette" (list "latte" "frappe" "macchiato" "mocha") "macchiato") -}}
 
 [data]
-catppuccin = "{{- $catppuccin -}}"
+name = "Clayton Gilmer"
+email = "netadr_t@outlook.com"
+catppuccin = "{{ $catppuccin }}"
 editor = "hx"
 
 [data.packages]
@@ -27,6 +29,7 @@ winget = [
 	"LLVM.LLVM",
 	"M2Team.NanaZip",
 	"Microsoft.PowerShell",
+	"Microsoft.PowerToys",
 	"Microsoft.VisualStudio.2022.Community.Preview",
 	"Ninja-build.Ninja",
 	"Obsidian.Obsidian",
