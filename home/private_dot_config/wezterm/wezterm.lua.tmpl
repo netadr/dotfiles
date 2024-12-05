@@ -13,8 +13,4 @@ config.color_scheme = 'Catppuccin Mocha'
 
 config.front_end = 'WebGpu'
 
-{{- if eq .chezmoi.os "windows" }}
-config.default_prog = { 'pwsh.exe' }
-{{- end }}
-
 return config

@@ -1,0 +1,30 @@
+# https://github.com/florence-wolfe/.dotfiles/blob/main/windows/08-install-color-theme.ps1 
+
+# Path to the settings.json file
+$jsonPath = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+
+# URLs for the Catppuccin theme files
+$schemeUrl = "https://raw.githubusercontent.com/catppuccin/windows-terminal/main/{{ .catppuccin }}.json"
+$themeUrl = "https://raw.githubusercontent.com/catppuccin/windows-terminal/main/{{ .catppuccin }}Theme.json"
+
+# Read the JSON from the file
+$settings = Get-Content -Path $jsonPath | ConvertFrom-Json
+
+# Download the Catppuccin scheme and theme
+$scheme = Invoke-RestMethod -Uri $schemeUrl
+$theme = Invoke-RestMethod -Uri $themeUrl
+
+# Check if the theme is already installed
+if ($settings.schemes.name -notcontains $scheme.name) {
+    # Add the Catppuccin scheme and theme to the settings
+    $settings.schemes += $scheme
+    $settings.themes += $theme
+
+    # Set the Catppuccin theme as the default for all profiles
+    $settings.profiles.defaults | Add-Member -MemberType NoteProperty -Name colorScheme -Value $scheme.name -Force
+
+    # Write the modified JSON back to the file
+    $settings | ConvertTo-Json -Depth 100 | Set-Content -Path $jsonPath
+
+    Write-Host "$($scheme.name) theme installed and set as the default in Windows Terminal."
+}

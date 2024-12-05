@@ -4,8 +4,12 @@ $env:PATH += ";C:\Program Files\Git\usr\bin"
 # Set my default editor
 $env:EDITOR = {{- .editor | quote -}};
 
-# Initialize zoxide
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
+# Add some aliases
+Set-Alias l Get-ChildItem
+Set-Alias vi $env:EDITOR
 
 # Initialize Starship
 Invoke-Expression (&starship init powershell)
+
+# Initialize zoxide
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
