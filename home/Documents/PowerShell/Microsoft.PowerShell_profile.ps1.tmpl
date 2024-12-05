@@ -7,6 +7,7 @@ $env:EDITOR = {{- .editor | quote -}};
 # Add some aliases
 Set-Alias l Get-ChildItem
 Set-Alias vi $env:EDITOR
+Set-Alias g git
 
 # Initialize Starship
 Invoke-Expression (&starship init powershell)
