@@ -10,6 +10,11 @@ $themeUrl = "https://raw.githubusercontent.com/catppuccin/windows-terminal/main/
 # Read the JSON from the file
 $settings = Get-Content -Path $jsonPath | ConvertFrom-Json
 
+# Exit on error (e.g. if the Windows Terminal configuration does not exist)
+if (!($?)) {
+    exit
+}
+
 # Download the Catppuccin scheme and theme
 $scheme = Invoke-RestMethod -Uri $schemeUrl
 $theme = Invoke-RestMethod -Uri $themeUrl

@@ -1,0 +1,14 @@
+{
+    "vim.leader": " ",
+    "vim.useSystemClipboard": true,
+{{- if eq .catppuccin "latte" }}
+    "workbench.colorTheme": "Catppuccin Latte",
+{{- else if eq .catppuccin "frappe" }}
+    "workbench.colorTheme": "Catppuccin Frappe",
+{{- else if eq .catppuccin "macchiato" }}
+    "workbench.colorTheme": "Catppuccin Macchiato",
+{{- else if eq .catppuccin "mocha" }}
+    "workbench.colorTheme": "Catppuccin Mocha",
+{{- end }}
+    "workbench.iconTheme": "material-icon-theme"
+}
