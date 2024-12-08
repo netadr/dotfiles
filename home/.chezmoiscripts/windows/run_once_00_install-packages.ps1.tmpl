@@ -5,7 +5,7 @@ function wingetInstallIfNotInstalled($id)
 {
     winget list --exact --id $id
     
-    if (-not $?) { winget install --exact --id $id --interactive }
+    if (-not $?) { winget install --accept-source-agreements  --exact --id $id --interactive }
 }
 
 $wingetPackages = {{- .packages.winget | quoteList | join "," }}
